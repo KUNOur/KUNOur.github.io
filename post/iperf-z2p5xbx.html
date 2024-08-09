@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <title>iperf | kunour&#39;s life</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="使用方法iperf可以测试最大TCP和UDP带宽性能，具有多种参数和UDP特性，可以根据需要调整，可以报告带宽、延迟抖动和数据包丢失。 以下列出iPerf命令部分参数，其他参数可通过命令“iperf3 -V”查看。 12345678910111213141516171819客户端和服务端共用选项：-f：--format，格式化带宽输出，支持的格式有&#39;k&#39; &#x3D; Kbits&#x2F;sec &#39;K&#39; &#x3D; KBy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iperf">
+<meta property="og:url" content="http://kunour.life/post/iperf-z2p5xbx.html">
+<meta property="og:site_name" content="kunour&#39;s life">
+<meta property="og:description" content="使用方法iperf可以测试最大TCP和UDP带宽性能，具有多种参数和UDP特性，可以根据需要调整，可以报告带宽、延迟抖动和数据包丢失。 以下列出iPerf命令部分参数，其他参数可通过命令“iperf3 -V”查看。 12345678910111213141516171819客户端和服务端共用选项：-f：--format，格式化带宽输出，支持的格式有&#39;k&#39; &#x3D; Kbits&#x2F;sec &#39;K&#39; &#x3D; KBy">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-27T18:15:40.000Z">
+<meta property="article:modified_time" content="2024-08-09T23:05:01.000Z">
+<meta property="article:author" content="kunour">
+<meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "kunour",
+  "url": "http://kunour.life"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>kunour&#39;s life</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">kunour</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-iperf-z2p5xbx" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    iperf
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <html><head></head><body><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>iperf可以测试最大TCP和UDP带宽性能，具有多种参数和UDP特性，可以根据需要调整，可以报告带宽、延迟抖动和数据包丢失。</p>
+<p>以下列出iPerf命令部分参数，其他参数可通过命令“iperf3 -V”查看。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">客户端和服务端共用选项：</span><br><span class="line">-f：--format，格式化带宽输出，支持的格式有</span><br><span class="line"><span class="string">'k'</span> = Kbits/sec <span class="string">'K'</span> = KBytes/sec</span><br><span class="line"><span class="string">'m'</span> = Mbits/sec <span class="string">'M'</span> = MBytes/sec</span><br><span class="line"><span class="string">'g'</span> = Gbits/sec <span class="string">'G'</span> = GBytes/sec</span><br><span class="line"><span class="string">'t'</span> = Tbits/sec <span class="string">'T'</span> = TBytes/sec</span><br><span class="line">-p：--port，设置端口，与服务器端的监听端口一致；</span><br><span class="line">-B：--bind，绑定到主机的多个地址中的一个。对于客户端来说，这个参数设置了出栈接口。对于服务器端来说，这个参数设置入栈接口。这个参数只用于具有多网络接口的主机。在Iperf的UDP模式下，此参数用于绑定和加入一个多播组。使用范围在<span class="number">224.0</span><span class="number">.0</span><span class="number">.0</span>至<span class="number">239.255</span><span class="number">.255</span><span class="number">.255</span>的多播地址。</span><br><span class="line">服务器端专用选项：</span><br><span class="line">-s：--server，Iperf服务器模式；</span><br><span class="line"><span class="number">-1</span>：--one-off与客户端连接一次然后退出。</span><br><span class="line">客户端专用选项：</span><br><span class="line">-c：--client，运行Iperf的客户端模式，连接到指定的Iperf服务器端；</span><br><span class="line">-u：--udp，使用UDP方式而不是TCP方式；</span><br><span class="line">-b：--bitrate，UDP模式使用的带宽，单位bits/sec,此选项与-u选项相关，默认值是<span class="number">1</span> Mbit/sec；</span><br><span class="line">-t：--time，设置传输的总时间，Iperf在指定的时间内，重复的发送指定长度的数据包。默认是<span class="number">10</span>秒钟；</span><br><span class="line">-n：--bytes，发送包的字节数，单位K/M/G；</span><br><span class="line">-l：--length，设置读写缓冲区的长度。TCP方式默认为<span class="number">128</span>KB，UDP方式默认为<span class="number">1460</span>字节；</span><br><span class="line">-w：--window，设置套接字缓冲区为指定大小。对于TCP方式，此设置为TCP窗口大小；对于UDP方式，此设置为接受UDP数据包的缓冲区大小，限制可以接受数据包的最大值。</span><br></pre></td></tr></tbody></table></figure>
+
+<ul class="ui list">
+<li>服务端为<code>iperf3 -B 192.168.1.129 -p 10000 -f -M -s</code>​</li>
+<li>客户端为<code>iperf3 -c 192.168.1.129 -p 10000 -f M</code>​</li>
+</ul>
+<p>‍</p>
+</body></html>
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2023-11-27T18:15:40.000Z" itemprop="datePublished">2023-11-27</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/post/kodi-2vkytu.html" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    kodi
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a class="ui tiny button disabled">Next<i class="angle right icon"></i></a>
+
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#使用方法"><span>使用方法</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2024 <a href="/">kunour</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

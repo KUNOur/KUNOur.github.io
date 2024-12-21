@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Ubuntu 20.04 源码编译安装qemu - kunour&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="kunour&#39;s blog" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">kunour&#39;s blog</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/about.html" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Ubuntu 20.04 源码编译安装qemu</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2024-12-21</span>
+  </div>
+  <div class="post-content">
+    <h1 id="下载qemu源码进行编译"><a href="#下载qemu源码进行编译" class="headerlink" title="下载qemu源码进行编译"></a>下载qemu源码进行编译</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//download.qemu.org/qemu-9.2.0.tar.xz</span></span><br><span class="line"><span class="meta"># wget https:<span class="comment">//download.qemu.org/qemu-7.2.15.tar.xz</span></span></span><br><span class="line"><span class="meta"># wget https:<span class="comment">//download.qemu.org/qemu-8.2.8.tar.xz</span></span></span><br><span class="line">tar xvJf qemu<span class="number">-9.2</span><span class="number">.0</span>.tar.xz</span><br><span class="line">cd qemu<span class="number">-9.2</span><span class="number">.0</span></span><br><span class="line">./configure --prefix=/home/kun/workspace/opt/qemu<span class="number">-9.2</span><span class="number">.0</span></span><br><span class="line">make -j4</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 使用 LD_LIBRARY_PATH 临时调整优先级，否则可能链接到原来的glib</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-venv -y</span><br><span class="line">sudo apt-get install python3-pip -y</span><br><span class="line">pip install tomli</span><br><span class="line">sudo apt install ninja-build -y</span><br><span class="line">sudo apt-get install git libglib2<span class="number">.0</span>-dev -y</span><br><span class="line">sudo apt install pkg-config -y</span><br><span class="line">sudo apt install build-essential meson ninja-build libpcre3-dev python3 python3-pip python3-gi python3-gi-cairo python3-dev libcairo2-dev libgirepository1<span class="number">.0</span>-dev libmount-dev git -y</span><br><span class="line">sudo apt-get install flex bison -y</span><br><span class="line"></span><br><span class="line"># ubuntu20<span class="number">.04</span>可能需要升级安装glib</span><br><span class="line">wget https:<span class="comment">//download.gnome.org/sources/glib/2.66/glib-2.66.0.tar.xz</span></span><br><span class="line">tar -xf glib<span class="number">-2.66</span><span class="number">.0</span>.tar.xz</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">meson ..</span><br><span class="line">ninja</span><br><span class="line">sudo ninja install</span><br><span class="line">pkg-config --modversion glib<span class="number">-2.0</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2024
+  <span class="author">
+    kunour
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
